@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class MyClass {
+    static int print(int n, int m) {
+        int r = 0;
+        int j = n;
+        while (true) {
+            if (j % n == 0 && sumOfDigits(j) == m) {
+                r = j;
+                break;
+            }
+            j++;
+        }
+        return r;
+    }
+
+    static int sumOfDigits(int j) {
+        int sum = 0;
+        while (j > 0) {
+            sum += j % 10;
+            j /= 10;
+        }
+        return sum;
+    }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the divisor 'n': ");
+        int n = sc.nextInt();
+        System.out.print("Enter the desired sum of digits 'm': ");
+        int m = sc.nextInt();
+        System.out.println("The smallest number divisible by " + n + " with a sum of digits equal to " + m + " is: " + print(n, m));
+        sc.close();
+    }
+}
